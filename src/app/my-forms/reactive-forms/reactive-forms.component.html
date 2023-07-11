@@ -1,0 +1,103 @@
+<div id="form">
+  <p>Sign up once and watch our free things.</p>
+
+  <div [formGroup]="userModel" class="form-group">
+     <label for="name">Your Name</label>
+     <br />
+     <div class="input-group">
+        <div class="input-group-addon "><i class="fa fa-user" aria-hidden="true"></i>
+        </div>
+        <input
+        [formControl]="nameControl"
+        type="text"
+        id="name"
+        placeholder="Enter Your Name"
+        [class.is-invalid]="nameControl.touched && nameControl.invalid"
+        />
+
+        <div class="invalid-feedback">
+          El campo es requerido
+        </div>
+      </div>
+   </div>
+
+  <div class="form-group">
+     <label for="email">Your Email</label>
+     <br />
+     <div class="input-group">
+        <div class="input-group-addon"><i class="fa fa-envelope" aria-hidden="true">            </i></div>
+        <input
+        [formControl]="emailControl"
+        type="email"
+         id="email"
+         placeholder="Enter Your Email"
+         [class.is-invalid]="emailControl.touched && emailControl.invalid"
+
+         />
+         <div class="invalid-feedback">
+          El campo es requerido
+        </div>
+
+        </div>
+     </div>
+
+
+  <div class="form-group">
+     <label for="username">Your Username</label>
+     <br />
+     <div class="input-group ">
+        <div class="input-group-addon"><i class="fa fa-users" aria-hidden="true"></i>            </div>
+        <input [formControl]="usernameControl"
+        type="text" id="username"
+         placeholder="Enter Your Username"
+
+         [class.is-invalid]="usernameControl.touched && usernameControl.invalid"
+         [class.is-valid]="usernameControl.touched && usernameControl.valid"
+        />
+        <div class="invalid-feedback">
+          El campo es requerido
+        </div>
+        <div class="valid-feedback">
+          Esta Disponible
+        </div>
+        </div>
+    </div>
+
+
+  <div class="form-group">
+     <label for="password">Your Password</label>
+     <br />
+     <div class="input-group">
+        <div class="input-group-addon"><i class="fa fa-lock" aria-hidden="true"></i>            </div>
+        <input
+        [formControl]="passwordControl"
+        type="text"
+         id="password"
+         placeholder="Enter Your Password"
+
+         />
+        </div>
+     </div>
+
+
+  <div class="form-group">
+     <label for="password-confirm">Confirm Your Password</label>
+     <br />
+     <div class="input-group">
+        <div class="input-group-addon"><i class="fa fa-lock" aria-hidden="true"></i>            </div>
+        <input [formControl]="confirmPaswordControl" type="text" id="password-confirm" placeholder="Confirm Your Password"
+        [class.is-invalid]="passwordControl.touched && passwordControl.valid &&
+                            confirmPaswordControl.touched && confirmPaswordControl.valid &&
+                            passwordControl.value!==confirmPaswordControl.value"/>
+        <div class="invalid-feedback">
+          Son Distintas.Cambiala o no pasas
+        </div>
+        </div>
+     </div>
+
+  <button type="submit" class="card bg-dark text-success" style="width: 12.9rem;">Register</button>
+  </div>
+  <div class="col-4">
+    <h5>Valor</h5>
+    <pre style="width: 300%;">{{ userModel.value | json }}</pre>
+  </div>
